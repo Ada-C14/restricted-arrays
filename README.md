@@ -29,7 +29,8 @@ Methods to implement are:
 - *length* - which calculates the length of the integer array and returns it.
              Note: The restricted_array is terminated by `nil` i.e. `array[length] = nil`
 - *print_array* - which prints each integer value separated by space on the same line
-- *reverse* - which reverses the values in the array in place
+- *reverse* - which reverses the values in the array **in place**
+  - This means that you **do not** create a 2nd array and copy the elements over in reverse order.
 - *search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
              Note: do not assume that the array is sorted.
 - *binary_search* - which looks for a given integer value in the array. Returns true if found, false otherwise.
