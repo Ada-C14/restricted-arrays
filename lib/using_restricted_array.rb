@@ -27,7 +27,8 @@ end
 def print_array(array)
   index = 0
   until index == length(array)
-    puts array[index]
+    print array[index]
+    print " "
     index += 1
   end
 end
