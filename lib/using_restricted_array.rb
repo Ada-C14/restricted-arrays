@@ -9,14 +9,25 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  #raise NotImplementedError
+  index = 0
+  until array[index].nil? # keep incrementing until you reach nil
+    index += 1
+  end
+  return index
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  #raise NotImplementedError
+  i = 0
+  until i >= length(array)
+    print "#{array[i]} "
+    i += 1
+  end
+
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -24,7 +35,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  #raise NotImplementedError
+  i = 0
+  while i < length
+    return true if value_to_find == array[i]
+    i += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -32,7 +49,17 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
-  raise NotImplementedError
+  #raise NotImplementedError
+  max_element = array[0]
+  i = 0
+  while i < length
+    # if array[i] > max_element
+    #   max_element = array[i]
+    # end
+    max_element = array[i] if array[i] > max_element
+    i += 1
+  end
+  return max_element
 end
 
 # Finds and returns the smallest integer value in the array
@@ -40,14 +67,34 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  #raise NotImplementedError
+  min_element = array[0]
+  i = 0
+  while i < length
+    min_element = array[i] if array[i] < min_element
+    i += 1
+  end
+  return min_element
 end
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
+  #raise NotImplementedError
+  i = 0
+  j = length - 1
+
+  # using a temp variable
+  while i < j
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+
+    i += 1
+    j -= 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -55,7 +102,7 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Helper method provided to sort the array in ascending order
