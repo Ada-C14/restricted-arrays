@@ -84,9 +84,7 @@ def reverse(array, length)
   first = 0
   last = length - 1
   until first == (length / 2)
-    temp_value = array[first]
-    array[first] = array[last]
-    array[last] = temp_value
+    array[first], array[last] = array[last], array[first]
     first += 1
     last -= 1
   end
