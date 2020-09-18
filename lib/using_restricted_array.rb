@@ -81,14 +81,14 @@ end
 # Time complexity: O(n/2) == O(n)
 # Space complexity: O(1) since the reversal is happening IN PLACE
 def reverse(array, length)
-  i = 0
-  j = length - 1
-  until i == (length / 2)
-    temp_value = array[i]
-    array[i] = array[j]
-    array[j] = temp_value
-    i += 1
-    j -= 1
+  first = 0
+  last = length - 1
+  until first == (length / 2)
+    temp_value = array[first]
+    array[first] = array[last]
+    array[last] = temp_value
+    first += 1
+    last -= 1
   end
   return array
 end
@@ -98,17 +98,17 @@ end
 # Time complexity: O(log n)
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  mid = length / 2
-  i = 1
-  while 2 ** i <= length && array[mid]
+  low = 0
+  high = length - 1
+  while low <= high
+    mid = (low + high) / 2
     if array[mid] == value_to_find
       return true
     elsif array[mid] > value_to_find
-      mid -= length / 2 ** i
+      high = mid - 1
     elsif array[mid] < value_to_find
-      mid += length / 2 ** i
+      low = mid + 1
     end
-    i += 1
   end
   return false
 end
