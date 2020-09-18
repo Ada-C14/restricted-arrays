@@ -103,6 +103,31 @@ end
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
   # raise NotImplementedError
+  # why didn't we need to sort the array here?
+  sorted_array = sort(array,length)
+
+  return false if length == 0
+
+  low = 0
+  high = length - 1 # last element
+
+  while low <= high
+    mid = (low + high) / 2 # mid is the index between low and high
+
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      # value to find is less than the value at the mid index
+      #  eliminate the second half
+      high = mid - 1
+    else
+      # array[mid] < value_to_find
+      # value to find is greater than the value at the mid index
+      # eliminate the first half
+      low = mid + 1 # not sure what this means?
+    end
+  end
+  return false # exited the while loop because value isn't found in array
 end
 
 # Helper method provided to sort the array in ascending order
