@@ -19,8 +19,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity:
-# Space complexity: ?
+# Time complexity: ? o(n)
+# Space complexity: ? o(1)
 def print_array(array)
   index = 0
   until array[index] == nil
@@ -54,10 +54,18 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? o(n)
+# Space complexity: ? o(1)
 def reverse(array, length)
-  raise NotImplementedError
+  index = 0
+  operations = length/2
+  while index < operations
+    index_val = array[index]
+    array[index] = array[length-1]
+    array[length-1] = index_val
+    index += 1
+    length -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
