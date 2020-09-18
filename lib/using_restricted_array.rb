@@ -31,10 +31,15 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? o(n)
+# Space complexity: ? o(1)
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  while index < length
+    return true if array[index] == value_to_find
+    index += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
