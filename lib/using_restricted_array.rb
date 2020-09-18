@@ -64,7 +64,7 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  smallest = 0
+  smallest = 221 #max integer value is 221, per specifications
   i = 0
   while i < length
     if array[i] < smallest
@@ -81,11 +81,13 @@ end
 # Space complexity: ?
 def reverse(array, length)
   i = 0
-  j = length
-  while (i != (length / 2))
+  j = length - 1
+  until i == (length / 2)
     temp_value = array[i]
     array[i] = array[j]
     array[j] = temp_value
+    i += 1
+    j -= 1
   end
   return array
 end
@@ -95,15 +97,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  mid = length  / 2
+  mid = length / 2
   i = 1
-  while array[mid] >= array[0] || array[mid] <= array[length - 1]
+  until 2 ** i >= length || !array[mid]
     if array[mid] == value_to_find
       return true
-    elsif array[mid] < value_to_find
-      array[mid] -= (array[mid] / 2 ** i)
     elsif array[mid] > value_to_find
-      array[mid] += (array[mid] / 2 ** i)
+      mid -= length / 2 ** i
+    elsif array[mid] < value_to_find
+      mid += length / 2 ** i
     end
     i += 1
   end
