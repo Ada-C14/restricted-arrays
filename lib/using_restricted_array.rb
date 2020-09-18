@@ -100,7 +100,7 @@ end
 def binary_search(array, length, value_to_find)
   mid = length / 2
   i = 1
-  until 2 ** i >= length || !array[mid]
+  while 2 ** i <= length && array[mid]
     if array[mid] == value_to_find
       return true
     elsif array[mid] > value_to_find
