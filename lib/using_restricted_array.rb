@@ -70,7 +70,17 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  i = 0
+  min_value = array[0]
+
+  while length > i
+    if array[i] < min_value
+      min_value = array[i]
+    end
+    i += 1
+  end
+
+  return min_value
 end
 
 # Reverses the values in the integer array in place
