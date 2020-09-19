@@ -81,13 +81,7 @@ end
 def reverse(array, length)
   index = 0
   while index < (length / 2)
-    low = array[index]
-    high = array[length - index - 1]
-    temp = low
-    low = high
-    high = temp
-    array[index] = low
-    array[length - index - 1] = high
+    array[index], array[length - index - 1] = array[length - index - 1], array[index] 
     index += 1
   end
   return array
