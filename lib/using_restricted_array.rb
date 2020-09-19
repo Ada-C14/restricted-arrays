@@ -78,7 +78,7 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n/2) = O(1)
+# Time complexity: O(n/2) = O(n)
 # Space complexity: O(1)
 def reverse(array, length)
   #raise NotImplementedError
