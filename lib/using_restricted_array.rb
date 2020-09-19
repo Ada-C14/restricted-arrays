@@ -38,7 +38,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+
+  while length > i
+    array[i] == value_to_find ? (return true) : i += 1
+  end
+
+  return false
 end
 
 # Finds and returns the largest integer value the array
