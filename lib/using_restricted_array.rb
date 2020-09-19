@@ -9,14 +9,28 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  size = 0
+
+  while array[size] != nil
+    size += 1
+  end
+
+  return size
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  printed_array = ""
+
+  while array[i] != nil
+    printed_array += "#{array[i]} "
+    i += 1
+  end
+
+  puts printed_array
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -90,3 +104,5 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
+
+print_array(RestrictedArray.new(5))
