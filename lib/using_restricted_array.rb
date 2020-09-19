@@ -52,7 +52,17 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  max_value = 0
+
+  while length > i
+    if array[i] > max_value
+      max_value = array[i]
+    end
+    i += 1
+  end
+
+  return max_value
 end
 
 # Finds and returns the smallest integer value in the array
@@ -110,5 +120,3 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
-
-print_array(RestrictedArray.new(5))
