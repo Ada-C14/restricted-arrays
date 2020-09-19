@@ -9,6 +9,11 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
+  length = 0
+  while !(array[length].nil?)
+    length += 1
+  end
+  return length
   raise NotImplementedError
 end
 
@@ -16,6 +21,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
+  length(array).times do |index|
+    puts array[index]
+  end
   raise NotImplementedError
 end
 
@@ -24,6 +32,12 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
+  length.times do |index|
+    if array[index] == value_to_find
+      return true
+    end
+  end
+  return false
   raise NotImplementedError
 end
 
@@ -32,6 +46,14 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
+  largest_num = 0
+  length.times do |index|
+    if array[index] > largest_num
+      largest_num = array[index]
+    end
+  end
+
+  return largest_num
   raise NotImplementedError
 end
 
@@ -40,6 +62,16 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
+  smallest_num = array[0]
+  index = 1
+  while index < length
+    if array[index] < smallest_num
+      smallest_num = array[index]
+    end
+    index += 1
+  end
+    
+  return smallest_num
   raise NotImplementedError
 end
 
@@ -47,6 +79,18 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
+  index = 0
+  while index < (length / 2)
+    low = array[index]
+    high = array[length - index - 1]
+    temp = low
+    low = high
+    high = temp
+    array[index] = low
+    array[length - index - 1] = high
+    index += 1
+  end
+  return array
   raise NotImplementedError
 end
 
@@ -55,6 +99,32 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
+  sorted_array = Array.new
+  until sorted_array.length == length
+    min = find_smallest(array, length)
+    sorted_array.push(min)
+
+    length.times do |index|
+      if array[index] == min
+        array[index] = find_largest(array, length) + 1
+      end
+    end
+  end
+
+  start_point = 0
+  last_point = length - 1
+  while start_point <= last_point
+    middle_point = (start_point + last_point) / 2
+    if sorted_array[middle_point] == value_to_find
+      return true
+    elsif sorted_array[middle_point] > value_to_find
+      last_point = middle_point - 1
+    else
+      start_point = middle_point + 1
+    end
+  end
+
+  return false
   raise NotImplementedError
 end
 
