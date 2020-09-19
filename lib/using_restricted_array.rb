@@ -6,31 +6,31 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) due to runtime grows directly in proportion to length.
+# Space complexity: O(1) because even though the input has n items, it takes a fixed amount of space that is not depend on the input.
 def length(array)
   length = 0
   while !(array[length].nil?)
     length += 1
   end
   return length
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) due to runtime grows directly in proportion to length.
+# Space complexity: O(1) because it takes a fixed amount of space that is not depend on the input.
 def print_array(array)
   length(array).times do |index|
     puts array[index]
   end
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) due to runtime grows directly in proportion to length.
+# Space complexity: O(1) because it takes a fixed amount of space that is not depend on the input.
 def search(array, length, value_to_find)
   length.times do |index|
     if array[index] == value_to_find
@@ -38,13 +38,13 @@ def search(array, length, value_to_find)
     end
   end
   return false
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) due to runtime grows directly in proportion to length.
+# Space complexity: O(1) because even though the input has n items, it takes a fixed amount of space that is not depend on the input.
 def find_largest(array, length)
   largest_num = 0
   length.times do |index|
@@ -54,13 +54,13 @@ def find_largest(array, length)
   end
 
   return largest_num
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) due to runtime grows directly in proportion to length.
+# Space complexity: O(1) because even though the input has n items, it takes a fixed amount of space that is not depend on the input.
 def find_smallest(array, length)
   smallest_num = array[0]
   index = 1
@@ -72,12 +72,12 @@ def find_smallest(array, length)
   end
     
   return smallest_num
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) due to runtime grows directly in proportion to length.
+# Space complexity: O(1) because the method reversed the values in the original array in place, it didn't take extra space.
 def reverse(array, length)
   index = 0
   while index < (length / 2)
@@ -85,41 +85,28 @@ def reverse(array, length)
     index += 1
   end
   return array
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n) due to runtime grows logarithmically in proportion to length.
+# Space complexity: O(1) because even though the input has n items, it takes a fixed amount of space that is not depend on the input.
 def binary_search(array, length, value_to_find)
-  sorted_array = Array.new
-  until sorted_array.length == length
-    min = find_smallest(array, length)
-    sorted_array.push(min)
-
-    length.times do |index|
-      if array[index] == min
-        array[index] = find_largest(array, length) + 1
-      end
-    end
-  end
-
   start_point = 0
   last_point = length - 1
   while start_point <= last_point
     middle_point = (start_point + last_point) / 2
-    if sorted_array[middle_point] == value_to_find
+    if array[middle_point] == value_to_find
       return true
-    elsif sorted_array[middle_point] > value_to_find
+    elsif array[middle_point] > value_to_find
       last_point = middle_point - 1
     else
       start_point = middle_point + 1
     end
   end
-
   return false
-  raise NotImplementedError
+  # raise NotImplementedError
 end
 
 # Helper method provided to sort the array in ascending order
