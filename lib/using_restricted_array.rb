@@ -7,10 +7,10 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 # Time complexity: ? O(n)
-# Space complexity: ? 0(1)
+# Space complexity: ? O(1)
 # array = [1, 4, 5, 6]
 def length(array)
-  # index is an index into the first element in the array
+  # i is an index into the first element in the array
   i = 0
   while !array[i].nil?
     i += 1
@@ -20,8 +20,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ? o(n)
-# Space complexity: ?o(1)
+# Time complexity: O(n)
+# Space complexity: O(1)
 def print_array(array)
   # raise NotImplementedError
   i = 0
@@ -33,8 +33,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ? o(n)
-# Space complexity: ?o(1)
+# Time complexity: O(n)
+# Space complexity: O(1)
 def search(array, length, value_to_find)
   # raise NotImplementedError
   i = 0
@@ -50,8 +50,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?o(n)
-# Space complexity: ? 0(1)
+# Time complexity: O(n)
+# Space complexity: O(1)
 
 def find_largest(array, length)
   #raise NotImplementedError
@@ -71,8 +71,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ? o(n)
-# Space complexity: ? 0(1)
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
   # raise NotImplementedError
   if length == 0
@@ -90,8 +90,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ? o(n)
-# Space complexity: ?0(1)
+# Time complexity: O(n)
+# Space complexity: 0(1)
 def reverse(array, length)
   # raise NotImplementedError
   if length <= 0
@@ -111,8 +111,8 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ? o(Log n) =>  n is the number of elements in the input array.
-# Space complexity: ? o(1)
+# Time complexity: O(Log n)
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
   # raise NotImplementedError
   if length == 0
