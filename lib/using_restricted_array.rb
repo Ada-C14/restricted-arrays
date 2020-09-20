@@ -114,8 +114,30 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
-end
+  # raise NotImplementedError
+  if length == 0
+    return false
+  end
+  # index of the first element
+  low = 0
+  # index of the last element
+  high = length - 1
+
+  while low <= high
+    # index of the mid element
+    mid = (low + high) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+    #  eliminate the second half
+    high = mid - 1
+    else
+      array[mid] < value_to_find
+      low = mid + 1
+    end
+  end
+    return false
+  end
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
