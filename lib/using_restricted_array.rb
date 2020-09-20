@@ -29,13 +29,12 @@ def print_array(array)
     print " #{array[index]}"
     index += 1
   end
-
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def search(array, length, value_to_find)
   index = 0
 
@@ -51,18 +50,38 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_int = array[0]
+  index = 1
+
+  while index < length(array)
+    if array[index] > largest_int
+      largest_int = array[index]
+    end
+    index += 1
+  end
+
+  return largest_int
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(N)
+# Space complexity: O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest_int = array[0]
+  index = 1
+
+  while index < length(array)
+    if array[index] < smallest_int
+      smallest_int = array[index]
+    end
+    index += 1
+  end
+
+  return smallest_int
 end
 
 # Reverses the values in the integer array in place
