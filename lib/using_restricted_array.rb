@@ -9,22 +9,27 @@ require_relative 'restricted_array.rb'
 # Time complexity: O(n)
 # Space complexity: O(1)
 def length(array)
-  count = 0
   index = 0
 
-  until array[index] == nil
-    count += 1
+  until array[index].nil?
     index += 1
   end
 
-  return count
+  return index
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def print_array(array)
-  raise NotImplementedError
+  print "#{array[0]}"
+  index = 1
+
+  until index == length(array)
+    print " #{array[index]}"
+    index += 1
+  end
+
 end
 
 # For an unsorted array, searches for 'value_to_find'.
