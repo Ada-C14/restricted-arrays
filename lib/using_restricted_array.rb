@@ -48,14 +48,25 @@ def search(array, length, value_to_find)
   end
 end
 
-
-p search([1,2,3], 3, 4)
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 # Time complexity: ?
 # Space complexity: ?
+
 def find_largest(array, length)
-  raise NotImplementedError
+  #raise NotImplementedError
+  if length == 0
+    return nil
+  end
+  max = array[0]
+  i = 0
+  while i < length
+    if array[i] > max
+      max = array[i]
+    end
+    i += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
