@@ -12,7 +12,7 @@ require_relative 'restricted_array.rb'
 def length(array)
   # index is an index into the first element in the array
   i = 0
-  while !(array[i].nil?)
+  while !array[i].nil?
     i += 1
   end
   return i
@@ -36,9 +36,20 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  # raise NotImplementedError
+  i = 0
+  while i < length
+    # check if value_to_find is the same as value at index i
+    if value_to_find == array[i]
+      return true
+      i += 1
+    end
+    return false
+  end
 end
 
+
+p search([1,2,3], 3, 4)
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 # Time complexity: ?
