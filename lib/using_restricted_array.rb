@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: The time complexity is O(n), where n is the size of the array.
+# Space complexity: The space complexity is O(1),
 def length(array)
   size = 0
 
@@ -87,7 +87,16 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0
+  j = length - 1
+
+  while i < j
+    array[i], array[j] = array[j], array[i]
+    i += 1
+    j -= 1
+  end
+
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -95,7 +104,22 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = length - 1
+
+  while low < high
+    mid = (low + high) / 2
+
+    if value_to_find == array[mid]
+      return true
+    elsif value_to_find > array[mid]
+      low = mid + 1
+    elsif value_to_find < array[mid]
+      high = mid - 1
+    end
+  end
+
+  return value_to_find == array[low]
 end
 
 # Helper method provided to sort the array in ascending order
