@@ -8,8 +8,16 @@ require_relative 'restricted_array.rb'
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 # Time complexity: ?
 # Space complexity: ?
+# array = [1, 4, 5, 6]
 def length(array)
-  raise NotImplementedError
+  # index is an index into the first element in the array
+  index = 0
+  while !(array[index].nil?)
+    index += 1
+  end
+  return index
+
+  # raise NotImplementedError
 end
 
 # Prints each integer values in the array
