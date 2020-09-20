@@ -11,12 +11,11 @@ require_relative 'restricted_array.rb'
 # array = [1, 4, 5, 6]
 def length(array)
   # index is an index into the first element in the array
-  index = 0
-  while !(array[index].nil?)
-    index += 1
+  i = 0
+  while !(array[i].nil?)
+    i += 1
   end
-  return index
-
+  return i
   # raise NotImplementedError
 end
 
@@ -24,7 +23,12 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  # raise NotImplementedError
+  i = 0
+  until array[i].nil?
+    print "#{array[i]} "
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
