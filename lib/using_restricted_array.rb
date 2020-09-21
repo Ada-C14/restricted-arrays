@@ -13,7 +13,6 @@ def length(array)
     until array[i] == nil
       i += 1
     end
-
     return i
 end
 
@@ -57,6 +56,7 @@ def find_largest(array, length)
       largest = array[i]
       i += 1
     else
+
       i += 1
     end
   end
