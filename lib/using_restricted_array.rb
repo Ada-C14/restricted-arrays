@@ -23,7 +23,7 @@ end
 def print_array(array)
   i = 0
   until array[i] == nil
-    puts array[i]
+    print array[i]
     i += 1
   end
 end
@@ -48,13 +48,22 @@ end
 # Space complexity: ?
 def find_largest(array, length)
   #raise NotImplementedError
-  highest = array[0]
-  length.times do |i|
-    if array[i] > highest
-      array[i] == highest
-    end
+  if length == 0
+    return nil
   end
-  return highest
+
+  largest_value = array[0]
+  i = 1
+  while i < length
+    if array[i] > largest_value
+      largest_value = array[i]
+    end
+
+    i = i + 1
+  end
+
+  return largest_value
+
 end
 
 # Finds and returns the smallest integer value in the array
@@ -63,13 +72,22 @@ end
 # Space complexity: ?
 def find_smallest(array, length)
   #raise NotImplementedError
-  lowest = array[0]
-  length.times do |i|
-    if array[i] < lowest
-      array[i] == lowest
-    end
+  if length == 0
+    return nil
   end
-  return lowest
+
+  min_value = array[0]
+  i = 1
+  while i < length
+    if array[i] < min_value
+      min_value = array[i]
+    end
+
+    i = i + 1
+  end
+
+  return min_value
+
 end
 
 # Reverses the values in the integer array in place
@@ -78,6 +96,7 @@ end
 def reverse(array, length)
   #raise NotImplementedError
 
+
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -85,7 +104,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  #raise NotImplementedError
+
+
 end
 
 # Helper method provided to sort the array in ascending order
