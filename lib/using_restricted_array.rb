@@ -38,7 +38,7 @@ def search(array, length, value_to_find)
     if value_to_find == array[i]
       return true
     else
-      i += i
+      i += 1
     end
   end
   return false
@@ -52,11 +52,10 @@ def find_largest(array, length)
   i = 0
   largest = 0
   while i < length
-    if array[i] > larger
+    if array[i] > largest
       largest = array[i]
       i += 1
     else
-
       i += 1
     end
   end
