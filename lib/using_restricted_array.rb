@@ -26,7 +26,7 @@ def print_array(array)
   printed_array = ""
 
   while array[i] != nil
-    printed_array += "#{array[i]} "
+    printed_array << "#{array[i]} "
     i += 1
   end
 
