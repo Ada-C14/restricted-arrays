@@ -9,14 +9,14 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -24,7 +24,7 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # Finds and returns the largest integer value the array
@@ -32,7 +32,7 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # Finds and returns the smallest integer value in the array
@@ -40,14 +40,14 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -55,7 +55,7 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  skip "Not Implemented"
 end
 
 # Helper method provided to sort the array in ascending order
