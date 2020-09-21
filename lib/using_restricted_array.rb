@@ -26,10 +26,11 @@ end
 def print_array(array)
   index = 0
   until array[index].nil?
-    puts array[index]
+    print "#{array[index]} "
     index += 1
   end
 end
+
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
