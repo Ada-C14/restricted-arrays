@@ -25,7 +25,7 @@ end
 def print_array(array)
   # raise NotImplementedError
   i = 0
-  until array[i].nil?
+  until i >= length(array)
     print "#{array[i]} "
     i += 1
   end
@@ -36,16 +36,13 @@ end
 # Time complexity: O(n)
 # Space complexity: O(1)
 def search(array, length, value_to_find)
-  # raise NotImplementedError
+  #raise NotImplementedError
   i = 0
   while i < length
-    # check if value_to_find is the same as value at index i
-    if value_to_find == array[i]
-      return true
-      i += 1
-    end
-    return false
+    return true if value_to_find == array[i]
+    i += 1
   end
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -94,9 +91,9 @@ end
 # Space complexity: 0(1)
 def reverse(array, length)
   # raise NotImplementedError
-  if length <= 0
-    return "nothing to reverse"
-  end
+  # if array = 0
+  #   return "nothing to reverse"
+  # end
   i = 0
   j = length - 1
   while i < j
@@ -129,15 +126,15 @@ def binary_search(array, length, value_to_find)
     if array[mid] == value_to_find
       return true
     elsif array[mid] > value_to_find
-    #  eliminate the second half
-    high = mid - 1
+      #  eliminate the second half
+      high = mid - 1
     else
       array[mid] < value_to_find
       low = mid + 1
     end
   end
-    return false
-  end
+  return false
+end
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
