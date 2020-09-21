@@ -22,8 +22,10 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n), where n is the length of the array
+# To print each integer, it will take n times to iterate through the array
+# Space complexity: Constant or O(1)
+# Uses constant amount of memory
 def print_array(array)
   print "#{array[0]}"
   index = 1
@@ -36,8 +38,11 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n), where n is the length of the array
+# It takes the value to find and check it with each element of the array
+# it will take n times to compare
+# Space complexity: Constant or O(1)
+# Uses constant amount of memory
 def search(array, length, value_to_find)
   index = 0
 
@@ -53,8 +58,10 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n), where n is the length of the array
+# To find the largest integer, it does an n amount of comparisons
+# Space complexity: Constant or O(1)
+# Uses constant amount of memory
 def find_largest(array, length)
   largest_int = array[0]
   index = 1
@@ -71,8 +78,10 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: O(N)
-# Space complexity: O(1)
+# Time complexity: O(n), where n is the length of the array
+# To find the smallest integer, it does an n amount of comparisons
+# Space complexity: Constant or O(1)
+# Uses constant amount of memory
 def find_smallest(array, length)
   smallest_int = array[0]
   index = 1
@@ -88,8 +97,12 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n/2) = > O(n)
-# Space complexity: O(1)
+# Time complexity: O(n/2) = > O(n), where n is the length of the array
+# It take half the length to iterate through the array which is n/2
+# Converting it to Big O terms, O(n)
+# Space complexity: Constant or O(1)
+# Uses constant amount of memory
+# The values swap places but still uses the same amount of memory
 def reverse(array, length)
   a = 0
   b = length - 1
@@ -105,8 +118,11 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(logn), where n is the length of the array
+# Through each iteration, the length of the array gets halved
+# It takes half of n each iteration to compare to the value to find
+# Space complexity: Constant or O(1)
+# Uses constant amount of memory
 def binary_search(array, length, value_to_find)
   if length == 0
     return false
