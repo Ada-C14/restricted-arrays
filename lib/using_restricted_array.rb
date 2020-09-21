@@ -8,7 +8,7 @@ require_relative 'restricted_array.rb'
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 # Time complexity: ? O(n)
 # Space complexity: ? O(1)
-# array = [1, 4, 5, 6]
+
 def length(array)
   # i is an index into the first element in the array
   i = 0
