@@ -41,15 +41,13 @@ end
 # Space complexity: O(1)
 def search(array, length, value_to_find)
   index = 0
-  until index == length - 1
+  until index == length
     if array[index] == value_to_find
       return true
-      exit
-    else
-      return false
     end
     index += 1
   end
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -59,7 +57,7 @@ end
 def find_largest(array, length)
   largest = 0
   index = 0
-  until index == length - 1
+  until index == length
     if array[index] > largest
       largest = array[index]
     end
@@ -75,7 +73,7 @@ end
 def find_smallest(array, length)
   smallest = array[0]
   index = 0
-  until index == length - 1
+  until index == length
     if array[index] < smallest
       smallest = array[index]
     end
