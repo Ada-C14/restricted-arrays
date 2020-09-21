@@ -38,7 +38,7 @@ end
 def search(array, length, value_to_find)
   index = 0
 
-  while index < length(array)
+  while index < length
     if value_to_find == array[index]
       return true
     end
@@ -56,7 +56,7 @@ def find_largest(array, length)
   largest_int = array[0]
   index = 1
 
-  while index < length(array)
+  while index < length
     if array[index] > largest_int
       largest_int = array[index]
     end
@@ -74,7 +74,7 @@ def find_smallest(array, length)
   smallest_int = array[0]
   index = 1
 
-  while index < length(array)
+  while index < length
     if array[index] < smallest_int
       smallest_int = array[index]
     end
@@ -89,7 +89,7 @@ end
 # Space complexity: O(1)
 def reverse(array, length)
   a = 0
-  b = length(array) - 1
+  b = length - 1
 
   while a < b
     array[a], array[b] = array[b], array[a]
@@ -105,17 +105,31 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  # min, max, and mid index
-  min = 0
-  max = length(array) - 1
-  mid = (max + min) / 2
-
-  until mid == 0
-    if value_to_find > 
+  if length == 0
+    return false
   end
 
+  # min and max index
+  min = 0
+  max = length - 1
 
+  while min <= max
+    mid = (min + max)/2
 
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] < value_to_find
+      # value at midpoint is less than the value to find
+      # adjust min, eliminate first half
+      min = mid + 1
+    elsif array[mid] > value_to_find
+      # value at midpoint is more than the value to find
+      # adjust max, eliminate second half
+      max = mid - 1
+    end
+  end
+
+  return false
 
 end
 
