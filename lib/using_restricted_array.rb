@@ -31,7 +31,6 @@ def print_array(array)
   end
 end
 
-
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: O(n)
@@ -93,7 +92,6 @@ end
 def reverse(array, length)
   first_index = 0
   last_index = length - 1
-  temp = nil
 
   until first_index == length / 2
     temp = array[first_index]
@@ -105,9 +103,6 @@ def reverse(array, length)
   end
   return array
 end
-
-
-
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
