@@ -4,6 +4,9 @@ require_relative 'restricted_array.rb'
 # All values are integers in the range of 1-221.
 # RestrictedArray cannot be resized.
 
+
+
+
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 
@@ -13,6 +16,7 @@ require_relative 'restricted_array.rb'
 # Space complexity: O(1); constant; excluding the input space,
 # the variables included in the function are all constants
 def length(array)
+  # raise NotImplementedError
   array_length = 0
 
   if array[0] == nil
@@ -26,19 +30,32 @@ def length(array)
   end
 
   return array_length
-  # raise NotImplementedError
 end
+
 
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+
+# Complexity assessment:
+# Note: where n = length of the input array
+# Time complexity: O(n); linear; prints each elem of array
+# Space complexity: O(1); constant; space for index (int)
 def print_array(array)
-  raise NotImplementedError
+  # raise NotImplementedError
+  index = 0
+  until array[index] == nil
+    p array[index]
+    index += 1
+  end
 end
+
+
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
+
+# Complexity assessment:
+# Note: where n = length of the input array
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
