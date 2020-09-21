@@ -6,7 +6,7 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: it has to iterate through each item in the array, so take that much time.
+# Time complexity: O(n) - it has to iterate through each item in the array, so take that much time.
 # Space complexity: it's just storing the 1 value, so won't take up much space.
 def length(array)
   i = 0 #index
@@ -22,7 +22,7 @@ end
 #p length(RestrictedArray.new(6))
 
 # Prints each integer values in the array
-# Time complexity: the time to iterate through each item in the array.
+# Time complexity: O(n) - the time to iterate through each item in the array.
 # Space complexity: I think none?  Because it's printing it?  no saving it anywhere?
 def print_array(array)
   length = length(array)
@@ -41,7 +41,7 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: Long (in the worst case) because it iterates through each element.
+# Time complexity: O(n) - (in the worst case) because it iterates through each element.
 # Space complexity: Very small, it's just giving true/false value.  I even want to say none - because it's not storing anything?
 def search(array, length, value_to_find)
 
@@ -61,7 +61,7 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ? Long, cause it has to iterate through the whole array.
+# Time complexity: O(n) - it has to iterate through the whole array.
 # Space complexity: ? small?  because it's only saving 1 element but then you are saving over it multiple times.
 def find_largest(array, length)
   return nil if length == 0 #my attempt at post fix conditional
@@ -84,7 +84,7 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ? same as above
+# Time complexity: O(n) same as above
 # Space complexity: ?
 def find_smallest(array, length)
   return nil if length == 0 #my attempt at post fix conditional
@@ -106,7 +106,7 @@ end
 #find_smallest([12, 46, 73, 2, 42, 113], 6)
 
 # Reverses the values in the integer array in place
-# Time complexity: ?  Half compared to linear way of doing it... because you are done when you are half way through the array.
+# Time complexity: O(n/2)? -  Half compared to linear way of doing it... because you are done when you are half way through the array.
 # Space complexity: ?  Very small because you are only saving 1 variable to replace the item, otherwise you are just using the existing array.
 def reverse(array, length)
   return array if length <= 1
@@ -129,7 +129,7 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: Compared to linear search, I think the average would be half the time?  or maybe it's less than that.
+# Time complexity: O(log n) It would take much less time than a linear search.
 # Space complexity: ?  you do have to temporarily save the 3 index values low, high & mid to compare.  And then you are only returning true/false.  But then there is also how are you saving the sorted array?  That could take a lot of space...
 def binary_search(array, length, value_to_find)
   low_i = 0
