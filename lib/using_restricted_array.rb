@@ -8,8 +8,8 @@ Minitest::Reporters::SpecReporter.new
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: 0(n) iterating thrugh until we find nil
-# Space complexity: ?
+# Time complexity: 0(n) Linear: iteration depends on length, we have to go through the array until we find the termination character nil.
+# Space complexity: O(1); uses constant memory, doesn't matter how big array is, we have one counter, no new data structures being created
 def length(array)
   # raise NotImplementedError
   i = 0
@@ -20,8 +20,9 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) linear, in order to print every element in array we have to go through entire array.
+# Space complexity: O(1) uses constant amount of memory, prints elements in array. No matter how array changes,
+# new memory is not taken up for this method.
 def print_array(array)
   i = 0
   until array[i] == nil
@@ -32,8 +33,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) linear, have to iterate through array until we find it.
+# Space complexity: O(1), constant memory,
 def search(array, length, value_to_find)
   # raise NotImplementedError
   length.times do |i|
@@ -46,8 +47,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) linear: since it's unsorted, will have to go through the entire array until the largest value is found.
+# Space complexity: O(1) memory usage does not change for this method, it is constant.
 def find_largest(array, length)
   #raise NotImplementedError
   if length == 0
@@ -70,8 +71,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity:  O(n) linear: since it's unsorted, will have to go through the entire array until the smallest value is found.
+# Space complexity: O(1) memory usage does not change for this method, it is constant.
 def find_smallest(array, length)
   #raise NotImplementedError
   if length == 0
@@ -93,32 +94,33 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)  execute in linear time as compared to the size of the input
+# Space complexity: O(1), since it is in place. New memory is not needed to store the reversed array.
+# Amount of memory used does not change as the size of the input array changes.
 def reverse(array, length)
   #raise NotImplementedError
   if length < 1
     return nil
   end
 
-    i = 0
-    j = length - 1
+  first = 0
+  last = length - 1
 
-    while i < j
-      temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
+    while first < last
+      temp = array[first]
+      array[first] = array[last]
+      array[last] = temp
 
-      i += 1
-      j -= 1
+      first += 1
+      last -= 1
     end
 
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: log2 n
-# Space complexity: ?
+# Time complexity: O(log n), the data set size affects the efficiency of the algorithm in a logarithmic fashion
+# Space complexity: O(1), memory used does not change as the size of the input array changes
 def binary_search(array, length, value_to_find)
   #raise NotImplementedError
   if length == 0
