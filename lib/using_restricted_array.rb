@@ -149,11 +149,32 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+
+# Complexity assessment:
+# Note: where n = length of the input array
+# Time complexity: O(log n); logarithmic; half of array is eliminated with each search:
+# doubling size of array only increases search count by 1
+# Space complexity: O(1); constant; does not require new vars aside from begin_ind (int), end_ind (int), and midpoint (int)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  begin_ind = 0
+  end_ind = length - 1
+
+  while begin_ind <= end_ind
+    midpoint = (begin_ind + end_ind) / 2
+    if array[midpoint] == value_to_find
+      return true
+    elsif array[midpoint] > value_to_find
+      end_ind = midpoint - 1
+    else
+      begin_ind = midpoint + 1
+    end
+  end
+
+  return false
+  # raise NotImplementedError
 end
+
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
