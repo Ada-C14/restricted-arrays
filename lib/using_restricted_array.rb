@@ -42,7 +42,7 @@ def search(array, length, value_to_find)
       i +=1
     end
   end
-
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -115,7 +115,7 @@ def binary_search(array, length, value_to_find)
         low = mid + 1
       end
   end
-
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
