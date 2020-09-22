@@ -107,9 +107,6 @@ end
 # linear complexity.
 # Space complexity: constant
 def reverse(array, length)
-  if array.length <= 1
-    return array
-  end
   # The array reserves back at the mid index
   n = length/2
   i = 0
@@ -143,10 +140,10 @@ def binary_search(array, length, value_to_find)
   # initialized to the index of the last element in the array
   last_index = length - 1
 
-  while first_index <= last_index 
-    mid_index = (first_index + last_index)/2 
+  while first_index <= last_index
+    mid_index = (first_index + last_index)/2
     if array[mid_index] == value_to_find
-      return true 
+      return true
     elsif array[mid_index] > value_to_find
       last_index = mid_index - 1
     elsif array[mid_index] < value_to_find
@@ -179,7 +176,7 @@ def sort(array, length)
     while temp_index < length # inner loop - n-1 elements
       if array[temp_index] < array[min_index] # found a new minimum, update min_index
         min_index = temp_index
-      end 
+      end
       temp_index += 1 # move to next index
     end
     if min_index != index # next minimum value is not at current index, swap
