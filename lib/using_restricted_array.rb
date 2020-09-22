@@ -73,21 +73,13 @@ end
 # Time complexity: O(n) - Linear
 # Space complexity: O(1) - Constant
 def reverse(array, length)
-  if length % 2 == 0
-    b = length / 2
-    a = b - 1
-  else
-    b = (length / 2.0).round
-    a = b - 2
-  end
+  a = 0
+  b = length - 1
 
-  while array[b]
-    array[a] = array[a] + array[b]
-    array[b] = array[a] - array[b]
-    array[a] = array[a] - array[b]
-
-    a -= 1
-    b += 1
+  while a < b
+    array[a], array[b] = array[b], array[a]
+    a += 1
+    b -= 1
   end
 
   return array
