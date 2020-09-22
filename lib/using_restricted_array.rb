@@ -9,7 +9,6 @@ require_relative 'restricted_array.rb'
 # Time complexity: O(n)
 # Space complexity: O(1)
 def length(array)
-  #raise NotImplementedError
   index = 0
   while array[index] != nil
     index += 1
@@ -21,7 +20,6 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def print_array(array)
-  #raise NotImplementedError
   index = 0
   while array[index] != nil
     print array[index]
@@ -34,7 +32,6 @@ end
 # Time complexity: O(n)
 # Space complexity: O(1)
 def search(array, length, value_to_find)
-  #raise NotImplementedError
   index = 0
   while index < length
     if array[index] == value_to_find
@@ -50,7 +47,6 @@ end
 # Time complexity: O(n)
 # Space complexity: O(1)
 def find_largest(array, length)
-  #raise NotImplementedError
   index = 0
   largest_value = array[0]
 
@@ -69,7 +65,6 @@ end
 # Time complexity: O(n)
 # Space complexity: O(1)
 def find_smallest(array, length)
-  #raise NotImplementedError
   index = 0
   smallest_value = array[0]
 
@@ -105,15 +100,20 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(log(n))
+# Time complexity: O(log(n)) #still need to have a better understanding of this
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  #raise NotImplementedError
   low = 0
   high = length - 1
   while low <= high
     mid = (low + high) / 2
-
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
     end
   end
   return false
