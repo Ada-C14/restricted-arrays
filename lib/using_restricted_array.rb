@@ -1,4 +1,6 @@
 require_relative 'restricted_array.rb'
+Minitest::Reporters.use!
+Minitest::Reporters::SpecReporter.new
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -95,18 +97,48 @@ end
 # Space complexity: ?
 def reverse(array, length)
   #raise NotImplementedError
+  if length < 1
+    return nil
+  end
 
+    i = 0
+    j = length - 1
+
+    while i < j
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+
+      i += 1
+      j -= 1
+    end
 
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
+# Time complexity: log2 n
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
   #raise NotImplementedError
+  if length == 0
+    return false
+  end
 
+  low = 0
+  high = length - 1
 
+  while low < high
+    mid = low + high / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+    return false
+  end
 end
 
 # Helper method provided to sort the array in ascending order
