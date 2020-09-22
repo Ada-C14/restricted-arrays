@@ -101,11 +101,27 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+
+# Complexity assessment:
+# Note: where n = length of the input array
+# Time complexity: O(n); linear; worst case will parse through array from beginning to end to find min
+# Space complexity: O(1); constant; does not require new vars aside from index (int) and min value (int)
 def find_smallest(array, length)
-  raise NotImplementedError
+  min_value = array[0]
+  index = 1
+
+  until index == length
+    if array[index] < min_value
+      min_value = array[index]
+    end
+    index += 1
+  end
+
+  return min_value
+  # raise NotImplementedError
 end
+
+
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
