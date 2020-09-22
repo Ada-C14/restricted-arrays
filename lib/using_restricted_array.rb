@@ -10,7 +10,9 @@ require_relative 'restricted_array.rb'
 # Space complexity: I think also O(1) since it is a fixed amount that it can hold
 def length(array)
   raise NotImplementedError if array.nil?
+
   count = 0
+
   until array[count].nil?
     count +=1
   end
@@ -18,7 +20,7 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: if array length does not got past 20, o(1), but if it increases o(n) because the more values the more time to process
+# Time complexity: if array length does not got past 20, o(1), but if it increases o(n) because the more/less values the more/less time to process
 # Space complexity: pretty much the same as above, there are no new values added past 20 or new arrays created
 def print_array(array)
   raise NotImplementedError if array.nil?
@@ -31,6 +33,8 @@ end
 # Space complexity: o(1) just sorting and not adding values
 def search(array, length, value_to_find)
   raise NotImplementedError if array.nil?
+  raise NotImplementedError if value_to_find.nil?
+
   count = 0
   until array[count] == value_to_find || count == length
     count += 1
@@ -49,6 +53,8 @@ end
 # Space complexity: no new arrays - o(1)
 def find_largest(array, length)
   raise NotImplementedError if array.nil?
+  raise NotImplementedError if length.nil?
+
   largest_number = 0
   length.times do |index|
     if array[index] > largest_number
@@ -64,6 +70,8 @@ end
 # Space complexity: same - no new arrays - o(1)
 def find_smallest(array, length)
   raise NotImplementedError if array.nil?
+  raise NotImplementedError if length.nil?
+
   smallest_number = array[0]
   length.times do |index|
     if array[index] < smallest_number
@@ -74,18 +82,39 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: for set length O(1), for any array length O(n)
+# Space complexity: O(1) because reverses in place, no new array is made
 def reverse(array, length)
-  raise NotImplementedError
+  raise NotImplementedError if array.nil?
+  raise NotImplementedError if length.nil?
+
+  index = 0
+  reverse_index = length - 1
+
+  while index < reverse_index
+    temp = array[index]
+    array[index] = array[reverse_index]
+    array[reverse_index] = temp
+
+    index += 1
+    reverse_index -= 1
+  end
+
+  # length.times do |index|
+  #   temp = array[index]
+  #   a = array
+  #   b = array
+  # end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(nlog n) - since doing the opposite of loop and cutting array in half
+# Space complexity: o(1) since no new array is being created
 def binary_search(array, length, value_to_find)
   raise NotImplementedError
+
+
 end
 
 # Helper method provided to sort the array in ascending order
