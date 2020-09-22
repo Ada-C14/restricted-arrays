@@ -48,7 +48,7 @@ end
 # Space complexity: O(1) memory usage does not change for this method, it is constant.
 def find_largest(array, length)
   #raise NotImplementedError
-  return nil if length.zero?
+  return nil if length.nil? || length.zero?
 
   largest_value = array[0]
   i = 1
@@ -67,13 +67,12 @@ end
 # Space complexity: O(1) memory usage does not change for this method, it is constant.
 def find_smallest(array, length)
   #raise NotImplementedError
-  return nil if length.zero?
+  return nil if length.nil? || length.zero?
 
   min_value = array[0]
   i = 1
   while i < length
     min_value = array[i] if array[i] < min_value
-
     i += 1
   end
 
@@ -83,11 +82,11 @@ end
 
 # Reverses the values in the integer array in place
 # Time complexity: O(n)  execute in linear time as compared to the size of the input
-# Space complexity: O(1), since it is in place. New memory is not needed to store the reversed array.
-# Amount of memory used does not change as the size of the input array changes.
+# Space complexity: O(1) constant space complexity; since it is in place. Amount of memory used does not change as the size of the input array changes.
+# Note: There are 3 memory allocations created for the 3 variables created(i,j,temp) but once created these do not change as input array size changes.
 def reverse(array, length)
   #raise NotImplementedError
-  return nil if length < 1
+  return nil if length <= 1
 
   first = 0
   last = length - 1
