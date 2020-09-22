@@ -18,7 +18,7 @@ end
 
 # Prints each integer values in the array
 # Time complexity: O(n)
-# Space complexity: O(n)
+# Space complexity: O(1)
 def print_array(array)
   i = 0
   until array[i] == nil
