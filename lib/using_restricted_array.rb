@@ -39,7 +39,7 @@ def search(array, length, value_to_find)
   length.times do |i|
     return true if value_to_find == array[i]
   end
-  false
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -122,8 +122,8 @@ def binary_search(array, length, value_to_find)
     elsif array[mid] < value_to_find
       low = mid + 1
     end
-    return false
   end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
