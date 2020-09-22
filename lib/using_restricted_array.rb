@@ -116,6 +116,7 @@ def reverse(array, length)
   i = 0
   while i < length
     array[i] = temp_array[i]
+    i += 1
   end
 end
 
