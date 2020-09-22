@@ -39,6 +39,7 @@ def search(array, length, value_to_find)
     if array[i] == value_to_find
       return true
     end
+    i += 1
   end
   false# raise NotImplementedError
 end
@@ -67,12 +68,13 @@ end
 def find_smallest(array, length)
   min = array[0]
   i = 1
-  until i == length
+  while i < length
     if min > array[i]
       min = array[i]
     end
     i += 1
   end
+  min
   # raise NotImplementedError
 end
 
@@ -98,16 +100,18 @@ end
 # Time complexity: O(log n)
 # Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  mid = array[length / 2]
+  mid = length / 2
   i = 0
   j = length - 1
   while i < j
-    if mid == value_to_find
+    if array[mid] == value_to_find
       return true
-    elsif mid < value_to_find
-      mid = (mid + j) / 2
-    elsif mid > value_to_find
-      mid = (mid + i) / 2
+    elsif array[mid] < value_to_find
+      i = mid
+      mid = i + j / 2
+    else
+      j = mid
+      mid = i + j / 2
     end
     i += 1
     j -= 1
