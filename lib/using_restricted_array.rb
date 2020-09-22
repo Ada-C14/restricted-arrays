@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'restricted_array.rb'
 Minitest::Reporters.use!
 Minitest::Reporters::SpecReporter.new
@@ -13,10 +14,8 @@ Minitest::Reporters::SpecReporter.new
 def length(array)
   # raise NotImplementedError
   i = 0
-  until array[i] == nil
-    i += 1
-  end
-  return i
+  i += 1 until array[i].nil?
+  i
 end
 
 # Prints each integer values in the array
@@ -25,7 +24,7 @@ end
 # new memory is not taken up for this method.
 def print_array(array)
   i = 0
-  until array[i] == nil
+  until array[i].nil?
     print array[i]
     i += 1
   end
@@ -38,11 +37,9 @@ end
 def search(array, length, value_to_find)
   # raise NotImplementedError
   length.times do |i|
-    if value_to_find == array[i]
-      return true
-    end
+    return true if value_to_find == array[i]
   end
-  return false
+  false
 end
 
 # Finds and returns the largest integer value the array
@@ -51,21 +48,16 @@ end
 # Space complexity: O(1) memory usage does not change for this method, it is constant.
 def find_largest(array, length)
   #raise NotImplementedError
-  if length == 0
-    return nil
-  end
+  return nil if length.zero?
 
   largest_value = array[0]
   i = 1
   while i < length
-    if array[i] > largest_value
-      largest_value = array[i]
-    end
-
-    i = i + 1
+    largest_value = array[i] if array[i] > largest_value
+    i += 1
   end
 
-  return largest_value
+  largest_value
 
 end
 
@@ -75,21 +67,17 @@ end
 # Space complexity: O(1) memory usage does not change for this method, it is constant.
 def find_smallest(array, length)
   #raise NotImplementedError
-  if length == 0
-    return nil
-  end
+  return nil if length.zero?
 
   min_value = array[0]
   i = 1
   while i < length
-    if array[i] < min_value
-      min_value = array[i]
-    end
+    min_value = array[i] if array[i] < min_value
 
-    i = i + 1
+    i += 1
   end
 
-  return min_value
+  min_value
 
 end
 
@@ -99,9 +87,7 @@ end
 # Amount of memory used does not change as the size of the input array changes.
 def reverse(array, length)
   #raise NotImplementedError
-  if length < 1
-    return nil
-  end
+  return nil if length < 1
 
   first = 0
   last = length - 1
@@ -123,9 +109,7 @@ end
 # Space complexity: O(1), memory used does not change as the size of the input array changes
 def binary_search(array, length, value_to_find)
   #raise NotImplementedError
-  if length == 0
-    return false
-  end
+  return false if length.zero?
 
   low = 0
   high = length - 1
@@ -162,16 +146,13 @@ def sort(array, length)
     min_index = index # assume index is where the next minimally value is
     temp_index = index+1 # compare with values at index+1 to length-1
     while temp_index < length # inner loop - n-1 elements
-      if array[temp_index] < array[min_index] # found a new minimum, update min_index
-        min_index = temp_index
-      end
+      min_index = temp_index if array[temp_index] < array[min_index] # found a new minimum, update min_index
       temp_index += 1 # move to next index
     end
-    if min_index != index # next minimum value is not at current index, swap
-      temp = array[min_index]
-      array[min_index] = array[index]
-      array[index] = temp
-    end
+    next unless min_index != index # next minimum value is not at current index, swap
+    temp = array[min_index]
+    array[min_index] = array[index]
+    array[index] = temp
   end
 end
 ## --- END OF METHODS ---
