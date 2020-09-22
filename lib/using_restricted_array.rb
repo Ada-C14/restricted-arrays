@@ -30,7 +30,8 @@ def print_array(array)
   return if array.nil?
 
   index = 0
-  while index < length(array)
+  length = length(array)
+  while index < length
     puts array[index]
     index += 1
   end
