@@ -6,57 +6,155 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# The number of iterations of the loop increases proportionally with the size of the array
+# Space complexity: O(1) or constant since we need one variable to save the value at index.
+# The additional storage needed is independent of the length of the array.
 def length(array)
-  raise NotImplementedError
+  return if array.nil?
+
+  index = 0
+  until array[index].nil?
+    index +=1
+  end
+
+  return index
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# The number of iterations of the loop increases proportionally with the size of the array
+# Space complexity: O(1) or constant since we need one variable to save the value at index.
+# The additional storage needed is independent of the length of the array.
 def print_array(array)
-  raise NotImplementedError
+  return if array.nil?
+
+  index = 0
+  length = length(array)
+  while index < length
+    puts array[index]
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# The number of iterations of the loop increases proportionally with the size of the array
+# Space complexity: O(1) or constant since we need one variable to save the value at index.
+# The additional storage needed is independent of the length of the array.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  return if array.nil?
+
+  index = 0
+  while index < length
+    if array[index] == value_to_find
+      return true
+    end
+
+    index += 1
+  end
+
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# The number of iterations of the loop increases proportionally with the size of the array
+# Space complexity: O(1) or constant since we need two variable to save the value at index and largest_value
+# The additional storage needed is independent of the length of the array.
 def find_largest(array, length)
-  raise NotImplementedError
+  return if array.nil?
+
+  index = 0
+  largest_value = array[0]
+
+  while index < length
+    if array[index] > largest_value
+      largest_value = array[index]
+    end
+
+    index += 1
+  end
+
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# The number of iterations of the loop increases proportionally with the size of the array
+# Space complexity: O(1) or constant since we need two variable to save the value at index and smallest_value
+# The additional storage needed is independent of the length of the array.
 def find_smallest(array, length)
-  raise NotImplementedError
+  return if array.nil?
+
+  index = 0
+  smallest_value = array[0]
+
+  while index < length
+    if array[index] < smallest_value
+      smallest_value = array[index]
+    end
+
+    index += 1
+  end
+
+  return smallest_value
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is the length of the array
+# The number of iterations of the loop increases proportionally with the size of the array
+# Space complexity: O(1) or constant since we need two variables to save the value at index and temporary_value_holder
+# The additional storage needed is independent of the length of the array.
+# Reverses the values in the array in place so a second array is not created.
 def reverse(array, length)
-  raise NotImplementedError
+  return if array.nil?
+
+  index = 0
+  last_index = length - 1
+
+  while index < last_index
+    temporary_value_holder = array[index]
+    array[index] = array[last_index]
+    array[last_index] = temporary_value_holder
+
+    index += 1
+    last_index -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n) where n is the length of the array.
+# After each iteration through the loop, half the remaining elements are eliminated.
+# Doubling n has a relatively small effect.
+# Space complexity: O(1) or constant since we need three variables to save low, high, and mid index
+# The additional storage needed is independent of the length of the array.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  return if array.nil?
+
+  low = 0
+  high = length - 1
+
+  while low < high
+    mid = (low + high) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+  end
+
+  return true if array[low] == value_to_find
+
+  return false
 end
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
