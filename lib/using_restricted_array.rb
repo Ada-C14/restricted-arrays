@@ -124,11 +124,28 @@ end
 
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+
+# Complexity assessment:
+# Note: where n = length of the input array
+# Time complexity: O(n); linear; traverse through half of array O(n/2) --> O(n)
+# Space complexity: O(1); constant; does not require new vars aside from index (int) and reverse_ind (int)
 def reverse(array, length)
-  raise NotImplementedError
+  ind = 0
+  reverse_ind = length - 1
+
+  until ind > reverse_ind
+    temp = array[reverse_ind]
+    array[reverse_ind] = array[ind]
+    array[ind] = temp
+    ind += 1
+    reverse_ind -= 1
+  end
+
+  return array
+  # raise NotImplementedError
 end
+
+
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
