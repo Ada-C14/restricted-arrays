@@ -4,8 +4,10 @@ require_relative 'restricted_array.rb'
 # All values are integers in the range of 1-221.
 # RestrictedArray cannot be resized.
 
+# Get that nice colorized output
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-
+#####################################################################
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
@@ -56,19 +58,46 @@ end
 
 # Complexity assessment:
 # Note: where n = length of the input array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n); linear; worst case goes through array from beginning to end to find value
+# Space complexity: O(1); constant; doesn't require more space than input array and index constant
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  until index == length
+    if array[index] == value_to_find
+      return true
+    end
+    index += 1
+  end
+
+  return false
+  # raise NotImplementedError
 end
+
+
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+
+# Complexity assessment:
+# Note: where n = length of the input array
+# Time complexity: O(n); linear; worst case will parse through array from beginning to end to find max
+# Space complexity: O(1); constant; does not require new vars aside from index (int) and max value (int)
 def find_largest(array, length)
-  raise NotImplementedError
+  max_value = array[0]
+  index = 1
+
+  until index == length
+    if array[index] > max_value
+      max_value = array[index]
+    end
+    index += 1
+  end
+
+  return max_value
+  # raise NotImplementedError
 end
+
+
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
