@@ -98,22 +98,12 @@ end
 # Space complexity: o(1) since no new array is being created
 def binary_search(array, length, value_to_find)
   # take the length and divide in half,
-  half_array = length / 2
-  start_index = 0
-  end_index = length - 1
-
-  # until value is found or until start and end are the same and don't match value to find
-  until array[half_array] == value_to_find || half_array == 0
-  # determine if number is below or above that half value,
-    if value_to_find > half_array
-      start_index = half_array
-    elsif value_to_find < half_array
-      end_index = half_array
-    end
-    end_index / 2
-  end
-
-  value_to_find == array[half_array]
+  # start_index = 0
+  # end_index = length - 1
+  # midpoint = length / 2
+  # until start_index > end_index
+  #
+  # end
 
 end
 
