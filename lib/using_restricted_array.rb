@@ -104,16 +104,13 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  #raise NotImplementedError
-  i = 0
-  until array[i] == nil
-    if array[i] == value_to_find
-      return true
-    else
-      return false
-    end
-  end
-  #
+  low = 0
+  high = length -1
+  
+  while (low <= high)
+    # put your code here
+    
+   end
 end
 
 # Helper method provided to sort the array in ascending order
