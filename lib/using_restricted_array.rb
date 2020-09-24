@@ -15,7 +15,7 @@ def length(array)
   i = 0
   i += 1 until array[i].nil?
 
-  i
+  return i
   # raise NotImplementedError
 end
 
