@@ -41,10 +41,10 @@ def search(array, _length, value_to_find)
     until array[i] == nil
       if array[i] == value_to_find
         return true
-      else
-        return false
       end
+      i += 1
     end
+    return false
   end
 
 # Finds and returns the largest integer value the array
