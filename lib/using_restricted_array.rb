@@ -56,10 +56,16 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest = array[0]
+  length.times do |i|
+    if array[i] < smallest
+      smallest = array[i]
+    end
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
