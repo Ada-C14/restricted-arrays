@@ -9,22 +9,38 @@ require_relative 'restricted_array.rb'
 # Time complexity: ?
 # Space complexity: ?
 def length(array)
-  raise NotImplementedError
+  index = 0
+  while array[index] != nil do
+    index += 1
+  end
+  return index
 end
 
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
 def print_array(array)
-  raise NotImplementedError
-end
+  i = 0
+  while array[i] != nil
+    i += 1
+  end
+  return i
+  end
+
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: ?
 # Space complexity: ?
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  until index == length
+    if array[index] == value_to_find
+      return true
+    end
+    index += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -32,7 +48,15 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_largest(array, length)
-  raise NotImplementedError
+  max = 0
+  index = 0
+  until index == length
+    if array[index] > max
+      max = array[index]
+    end
+    index += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
@@ -40,14 +64,29 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def find_smallest(array, length)
-  raise NotImplementedError
+  min = 0
+  index = 0
+  until index == length
+    if array[index] < min
+      min = array[index]
+    end
+    index += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
 # Time complexity: ?
 # Space complexity: ?
 def reverse(array, length)
-  raise NotImplementedError
+  half = length/2
+  i = 0
+  until i == half do
+    temp = array[i]
+    array[i] = array[length - 1 - i]
+    array[length - 1 - i] = temp
+    i += 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -55,7 +94,22 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  lowest = 0
+  highest = length -1
+  mid = length/2
+
+  while lowest <= highest do
+    mid = (lowest + highest)/2
+
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] < value_to_find
+      lowest = mid +1
+    else
+      highest = mid - 1
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
