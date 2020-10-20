@@ -69,18 +69,37 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(1)
 def reverse(array, length)
-  raise NotImplementedError
+  reversed_array = []
+  array_length = self.length -1
+  array_length.downto(0).each do |l|
+    reversed_array << self[l]
+  end
+  reversed_array # loop back through and copy into array to pass time
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(logn)
+# Space complexity: 0(1)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  min = 0
+  max = length - 1
+
+  while min <= max
+    mid = (min + max) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      max = mid - 1
+    else
+      min = mid + 1
+    end
+  end
+
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
