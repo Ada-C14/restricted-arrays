@@ -10,22 +10,26 @@ require_relative 'restricted_array.rb'
 # Space complexity: O(1) - constant space complexity (just one integer created regardless of array size).
 def length(array)
   i = 0
-    until array[i] == nil
-      i += 1
-    end
-    return i
+  until array[i] == nil
+    i += 1
+  end
+  return i
 end
 
 # Prints each integer values in the array
 # Time complexity: for n = array.length, time complexity is linear O(n)
 # Space complexity: constant space complexity O(1) - just one integer created regardless of array size.
 def print_array(array)
-  i = 0
-  while i < array.length - 1
-    print "#{array[i]} "
-    i += 1
+  # i = 0
+  # while i < array.length - 1
+  #   print "#{array[i]} "
+  #   i += 1
+  # end
+  # print "#{array[i]}"
+
+  for i in 0..(length(array) - 1) do
+    p "#{array[i]} "
   end
-  print "#{array[i]}"
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -34,11 +38,12 @@ end
 # Space complexity: O(1) - constant (won't change regardless of array size)
 def search(array, length, value_to_find)
   i = 0
-  while i < length
+  # while i < length
+  for i in 0..length do
     if value_to_find == array[i]
       return true
-    else
-      i += 1
+    # else
+    #   i += 1
     end
   end
   return false
