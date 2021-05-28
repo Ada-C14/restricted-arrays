@@ -20,13 +20,6 @@ end
 # Time complexity: for n = array.length, time complexity is linear O(n)
 # Space complexity: constant space complexity O(1) - just one integer created regardless of array size.
 def print_array(array)
-  # i = 0
-  # while i < array.length - 1
-  #   print "#{array[i]} "
-  #   i += 1
-  # end
-  # print "#{array[i]}"
-
   for i in 0..(length(array) - 1) do
     p "#{array[i]} "
   end
@@ -38,12 +31,9 @@ end
 # Space complexity: O(1) - constant (won't change regardless of array size)
 def search(array, length, value_to_find)
   i = 0
-  # while i < length
   for i in 0..length do
     if value_to_find == array[i]
       return true
-    # else
-    #   i += 1
     end
   end
   return false
